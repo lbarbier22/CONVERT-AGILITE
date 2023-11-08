@@ -85,6 +85,32 @@
                         <li>Currency</li>
                     </ul>
                 </div>
+
+            </div>
+            <div class="Conversion">
+            <h1>Conversion d'unités, l'exterminator4000 !</h1>
+            <div id="champs">
+            <label for="uniteGauche">Unité à convertir :</label>
+            <input type="text" id="uniteGauche" placeholder="Entrez l'unité à convertir">
+
+            <label for="uniteDroite">Unité convertie :</label>
+            <input type="text" id="uniteDroite" readonly>
+
+            <button onclick="convertirUnite()">Convertir</button>
+            </div>
+            <script>
+                function convertirUnite() {
+                    // Récupère la valeur de l'unité dans le champ de gauche
+                    const uniteGauche = parseFloat(document.getElementById('uniteGauche').value);
+
+                    // Effectue la conversion ici (remplace cette partie par ta logique de conversion)
+                    // Exemple de conversion : multiplier par 2
+                    const uniteDroite = uniteGauche * 2;
+
+                    // Affiche le résultat dans le champ de droite
+                    document.getElementById('uniteDroite').value = uniteDroite;
+                }
+            </script>
             </div>
         </div>
     </section>
