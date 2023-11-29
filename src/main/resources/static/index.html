@@ -88,15 +88,51 @@
                   <h1>We Love To convert <span class="typed-words"></span></h1>
                   <p class="lead mb-5">Clearly the best converter in this planet</p>
                   <div style="display:flex; justify-content: center; align-items: center; margin-bottom: 15%; margin-top: 10%">
-                    <div style="margin-right: 3%"><a data-fancybox data-ratio="4" href="convertisseur.html" class="btn btn-primary btn-md" >Température</a></div>
-                    <div style="margin-right: 3%"><a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md" >Volume</a></div>
-                    <div><a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Distance</a></div>
-                  </div>
-                  <div style="display:flex; justify-content: center; align-items: center;">
-                    <div style="margin-right: 3%"><a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Temps</a></div>
-                    <div style="margin-right: 3%"><a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Vitesse</a></div>
-                    <div><a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Poids</a></div>
-                  </div>
+                    <div class="info-container" style="margin-right: 3%">
+                        <a data-fancybox data-ratio="4" href="convertisseur.html" class="btn btn-primary btn-md">Température</a>
+                        <div class="popup" id="popup-temperature">
+                          La catégorie de température permet de convertir des valeurs entre les échelles Celsius, Fahrenheit, Kelvin et Newton.
+                        </div>
+                    </div>
+                    <div class="info-container" style="margin-right: 3%">
+                        <a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Volume</a>
+                        <div class="popup" id="popup-volume">
+                          La catégorie de volume permet de convertir des unités de volume telles que les litres, les millilitres, les mètres cube, et autres.                        </div>
+                    </div>
+                    <div class="info-container">
+                        <a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Distance</a>
+                        <div class="popup" id="popup-distance">
+                          La catégorie de distance facilite la conversion entre différentes unités de longueur, comme les mètres, les kilomètres, les miles, etc.                        </div>
+                    </div>
+                </div>
+            
+                <div style="display:flex; justify-content: center; align-items: center;">
+                    <div class="info-container" style="margin-right: 3%">
+                        <a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Temps</a>                        <div class="popup" id="popup-temps">
+                          La catégorie de temps permet de convertir entre différentes unités temporelles, telles que les secondes, les minutes, les heures, etc.                        </div>
+                    </div>
+                    <div class="info-container" style="margin-right: 3%">
+                        <a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Vitesse</a>
+                        <div class="popup" id="popup-vitesse">
+                          La catégorie de vitesse est utilisée pour convertir des valeurs de vitesse entre différentes unités, comme les mètres par seconde, les kilomètres par heure, les miles par heure, etc.                        </div>
+                    </div>
+                    <div class="info-container">
+                        <a data-fancybox data-ratio="2" href="convertisseur.html" class="btn btn-primary btn-md">Poids</a>
+                        <div class="popup" id="popup-poids">
+                          La catégorie de poids facilite la conversion entre différentes unités de masse, telles que les grammes, les kilogrammes, les livres, etc.                        </div>
+<script>
+  function showInfo(category) {
+    var popupId = 'popup-' + category;
+    var popup = document.getElementById(popupId);
+
+    if (popup.style.display === 'none') {
+        popup.style.display = 'block';
+    } else {
+        popup.style.display = 'none';
+    }
+}
+</script>
+
 
 
                   <!--
@@ -135,7 +171,6 @@
             </div>
 
             <div class="col-lg-6" data-jarallax-element="50">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
             </div>
           </div>
         </div>

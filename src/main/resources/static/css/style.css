@@ -642,7 +642,7 @@ h1, h2, h3, h4, h5,
       background: rgba(0, 0, 0, 0.4); }
   .site-blocks-cover .player {
     position: absolute;
-    bottom: -250px;
+    bottom: 250px;
     width: 100%; }
   .site-blocks-cover, .site-blocks-cover > .container > .row {
     min-height: 600px;
@@ -1762,3 +1762,32 @@ h1, h2, h3, h4, h5,
 
 .subcription-form button {
   border-radius: 0px 4px 4px 0px !important; }
+
+
+.info-container {
+    position: relative;
+    margin-right: 3%;
+}
+
+.info-icon {
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 250px; /* Taille adaptative en fonction du contenu */
+    height: auto; /* Taille adaptative en fonction du contenu */
+}
+
+.info-container:hover .popup {
+    display: block;
+}
+
