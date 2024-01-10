@@ -87,29 +87,71 @@
                 </div>
 
             </div>
-            <div class="Conversion">
-            <h1>Conversion d'unités, l'exterminator4000 !</h1>
             <div id="champs">
-            <label for="uniteGauche">Unité à convertir :</label>
-            <input type="text" id="uniteGauche" placeholder="Entrez l'unité à convertir">
+                <label for="selectUniteOrigine">Unité d'origine :</label>
+                <select id="selectUniteOrigine">
+                    <option value="metre">Mètre</option>
+                    <option value="decimetre">Décimètre</option>
+                    <option value="kilometre">Kilomètre</option>
+                    <!-- Ajoute d'autres unités selon tes besoins -->
+                </select>
 
-            <label for="uniteDroite">Unité convertie :</label>
-            <input type="text" id="uniteDroite" readonly>
+                <label for="selectUniteDestination">Unité destination :</label>
+                <select id="selectUniteDestination">
+                    <option value="metre">Mètre</option>
+                    <option value="decimetre">Décimètre</option>
+                    <option value="kilometre">Kilomètre</option>
+                    <!-- Ajoute d'autres unités selon tes besoins -->
+                </select>
 
-            <button onclick="convertirUnite()">Convertir</button>
+                <label for="valeur">Valeur :</label>
+                <input type="text" id="valeur" placeholder="Entrez la valeur à convertir">
+
+                <label for="resultat">Résultat :</label>
+                <input type="text" id="resultat" readonly>
+
+                <button onclick="convertirUnite()">Convertir</button>
             </div>
             <script>
+
+                const ratios = {
+        metre: {
+            decimetre: 10,
+            kilometre: 0.001,
+            // Ajoute d'autres ratios selon tes besoins
+        },
+        decimetre: {
+            metre: 0.1,
+            kilometre: 0.0001,
+            // Ajoute d'autres ratios selon tes besoins
+        },
+        kilometre: {
+            metre: 1000,
+            decimetre: 10000,
+            // Ajoute d'autres ratios selon tes besoins
+        }
+        // Ajoute d'autres unités avec leurs ratios
+    };
+
                 function convertirUnite() {
-                    // Récupère la valeur de l'unité dans le champ de gauche
-                    const uniteGauche = parseFloat(document.getElementById('uniteGauche').value);
+        const uniteOrigine = document.getElementById('selectUniteOrigine').value;
+        const uniteDestination = document.getElementById('selectUniteDestination').value;
+        const valeur = parseFloat(document.getElementById('valeur').value);
 
-                    // Effectue la conversion ici (remplace cette partie par ta logique de conversion)
-                    // Exemple de conversion : multiplier par 2
-                    const uniteDroite = uniteGauche * 2;
+        // Vérifie si les unités sélectionnées ont des ratios définis
+        if (ratios.hasOwnProperty(uniteOrigine) && ratios[uniteOrigine].hasOwnProperty(uniteDestination)) {
+            // Récupère le ratio de conversion
+            const ratio = ratios[uniteOrigine][uniteDestination];
 
-                    // Affiche le résultat dans le champ de droite
-                    document.getElementById('uniteDroite').value = uniteDroite;
-                }
+            // Effectue la conversion
+            const resultat = valeur * ratio;
+
+            // Affiche le résultat dans le champ de destination
+            document.getElementById('resultat').value = resultat;
+        } else {
+            alert("Conversion non prise en charge pour les unités sélectionnées.");
+        }
+    }
             </script>
             </div>
         </div>
