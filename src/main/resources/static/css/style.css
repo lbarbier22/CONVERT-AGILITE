@@ -11,7 +11,6 @@
 /* Base */
 body {
   line-height: 1.7;
-  text-align : center;
   color: #818181;
   font-weight: 300;
   font-size: 15px;
@@ -60,16 +59,6 @@ h1, h2, h3, h4, h5,
 
 .border-2 {
   border-width: 2px; }
-
-.Conversion{
- width: 700px; /* Largeur du conteneur */
-            margin-left: 200px; /* Centre le conteneur horizontalement */
-            text-align: center; /* Rétablit l'alignement à gauche pour les étiquettes */
-}
-
-h1 {
-            margin-bottom: 40px; /* Ajoute un espace de 20 pixels en bas du titre h1 */
-        }
 
 .text-black {
   color: #000 !important; }
