@@ -53,11 +53,11 @@
                     <nav class="site-navigation position-relative text-right" role="navigation">
 
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="#home-section" class="nav-link">Home</a></li>
+                            <li><a href="index.html" class="nav-link">Home</a></li>
                             <!--
                             <li><a href="#work-section" class="nav-link">Histo</a></li>
                             -->
-                            <li><a href="#contact-section" class="nav-link">Account</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -85,77 +85,145 @@
                         <li>Currency</li>
                     </ul>
                 </div>
+
             </div>
+            <div id="champs">
+                <label for="selectUniteOrigine">Unité d'origine :</label>
+                <select id="selectUniteOrigine">
+                    <option value="metre">Mètre</option>
+                    <option value="decimetre">Décimètre</option>
+                    <option value="kilometre">Kilomètre</option>
+                    <!-- Ajoute d'autres unités selon tes besoins -->
+                </select>
+
+                <label for="selectUniteDestination">Unité destination :</label>
+                <select id="selectUniteDestination">
+                    <option value="metre">Mètre</option>
+                    <option value="decimetre">Décimètre</option>
+                    <option value="kilometre">Kilomètre</option>
+                    <!-- Ajoute d'autres unités selon tes besoins -->
+                </select>
+
+                <label for="valeur">Valeur :</label>
+                <input type="text" id="valeur" placeholder="Entrez la valeur à convertir">
+
+                <label for="resultat">Résultat :</label>
+                <input type="text" id="resultat" readonly>
+
+                <button onclick="convertirUnite()">Convertir</button>
+            </div>
+            <script>
+
+                const ratios = {
+        metre: {
+            decimetre: 10,
+            kilometre: 0.001,
+            // Ajoute d'autres ratios selon tes besoins
+        },
+        decimetre: {
+            metre: 0.1,
+            kilometre: 0.0001,
+            // Ajoute d'autres ratios selon tes besoins
+        },
+        kilometre: {
+            metre: 1000,
+            decimetre: 10000,
+            // Ajoute d'autres ratios selon tes besoins
+        }
+        // Ajoute d'autres unités avec leurs ratios
+    };
+
+                function convertirUnite() {
+        const uniteOrigine = document.getElementById('selectUniteOrigine').value;
+        const uniteDestination = document.getElementById('selectUniteDestination').value;
+        const valeur = parseFloat(document.getElementById('valeur').value);
+
+        // Vérifie si les unités sélectionnées ont des ratios définis
+        if (ratios.hasOwnProperty(uniteOrigine) && ratios[uniteOrigine].hasOwnProperty(uniteDestination)) {
+            // Récupère le ratio de conversion
+            const ratio = ratios[uniteOrigine][uniteDestination];
+
+            // Effectue la conversion
+            const resultat = valeur * ratio;
+
+            // Affiche le résultat dans le champ de destination
+            document.getElementById('resultat').value = resultat;
+        } else {
+            alert("Conversion non prise en charge pour les unités sélectionnées.");
+        }
+    }
+            </script>
         </div>
-    </section>
+</div>
+</section>
 
 
 
-    <!--
-    <section class="site-section" id="contact-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="site-section-heading">Contact Us</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 mb-5">
-
-
-
-            <form action="#" class="p-5 bg-white">
-
-              <h2 class="h4 mb-5">Contact Form</h2>
-
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label>
-                  <input type="email" id="email" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
-                </div>
-              </div>
-
-
-            </form>
-          </div>
-
-        </div>
+<!--
+<section class="site-section" id="contact-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="site-section-heading">Contact Us</h2>
       </div>
-    </section>
-    -->
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-5">
+
+
+
+        <form action="#" class="p-5 bg-white">
+
+          <h2 class="h4 mb-5">Contact Form</h2>
+
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="text-black" for="fname">First Name</label>
+              <input type="text" id="fname" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="text-black" for="lname">Last Name</label>
+              <input type="text" id="lname" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label class="text-black" for="email">Email</label>
+              <input type="email" id="email" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label class="text-black" for="subject">Subject</label>
+              <input type="subject" id="subject" class="form-control">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="message">Message</label>
+              <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+-->
 
 
 
